@@ -73,7 +73,7 @@ class Breadcrumb {
      * @param array $elements
      * @return void
      */
-    function addElements($elements = array()) {
+    public function addElements($elements = array()) {
         if (!is_array($elements))
             return false;
         foreach ($elements AS $key => $row) {
