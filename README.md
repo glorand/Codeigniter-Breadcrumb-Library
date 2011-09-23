@@ -1,17 +1,10 @@
-A First Level Header
-====================
+# Codeigniter Breadcrumb Library v1.0
 
-A Second Level Header
----------------------
+Breadcrumb is a navigational tool that developer often integrate in their application to give easy access to different segment of the application.
 
-Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.
+This library helps your build HTML breadcrumbs with CodeIgniter.
 
-The quick brown fox jumped over the lazy
-dog's back.
-
-### Header 3
+This library does not use anything special, so there is no a recommended version of CodeIgniter.
 
 `
 <?php
