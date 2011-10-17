@@ -30,12 +30,12 @@ class Breadcrumb {
     public function __construct($config = array()) {
         $this->_ci = & get_instance();
         $this->_ci->load->config('breadcrumb');
-        $this->home_element = $this->_ci->config->item('breadcrumb_home_element');
-        $this->use_home_element = $this->_ci->config->item('breadcrumb_use_home_element');
-        $this->element_options = $this->_ci->config->item('breadcrumb_element_options');
-        $this->home_element_options = $this->_ci->config->item('breadcrumb_home_element_options');
-        $this->last_element_options = $this->_ci->config->item('breadcrumb_last_element_options');
-        $this->separator = $this->_ci->config->item('breadcrumb_separator');
+        $this->breadcrumb_home_element = $this->_ci->config->item('breadcrumb_home_element');
+        $this->breadcrumb_use_home_element = $this->_ci->config->item('breadcrumb_use_home_element');
+        $this->breadcrumb_element_options = $this->_ci->config->item('breadcrumb_element_options');
+        $this->breadcrumb_last_element_options = $this->_ci->config->item('breadcrumb_last_element_options');
+        $this->breadcrumb_home_element_options = $this->_ci->config->item('breadcrumb_home_element_options');
+        $this->breadcrumb_separator = $this->_ci->config->item('breadcrumb_separator');
         if (count($config) > 0) {
             $this->initialize($config);
         }
@@ -124,7 +124,7 @@ class Breadcrumb {
         $result_array = $this->getGeneratedArray();
         $result_str = '';
         if (count($result_array)) {
-            $result_str = implode($this->separator, $result_array);
+            $result_str = implode($this->breadcrumb_separator, $result_array);
         }
         return $result_str;
     }
@@ -135,8 +135,8 @@ class Breadcrumb {
      */
     public function getGeneratedArray() {
         $breadcrumb_array = $this->_breadcrumb_array;
-        if ($this->use_home_element) {
-            array_unshift($breadcrumb_array, $this->home_element);
+        if ($this->breadcrumb_use_home_element) {
+            array_unshift($breadcrumb_array, $this->breadcrumb_home_element);
         }
         end($breadcrumb_array);
         $last_key = key($breadcrumb_array);
@@ -146,13 +146,13 @@ class Breadcrumb {
                 continue;
 
             if (!$key) {
-                $options = $this->home_element_options;
+                $options = $this->breadcrumb_home_element_options;
             }
             elseif ($key == $last_key) {
-                $options = $this->last_element_options;
+                $options = $this->breadcrumb_last_element_options;
             }
             else {
-                $options = $this->element_options;
+                $options = $this->breadcrumb_element_options;
             }
 
             if (isset($row['options']) AND is_array($row['options'])) {
