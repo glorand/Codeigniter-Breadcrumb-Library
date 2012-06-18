@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author        	Gombos Lorand
  * @version             1.0
  * 
- */
+ */ 
 class Breadcrumb {
 
     /**
